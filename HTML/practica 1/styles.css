@@ -1,0 +1,199 @@
+html{
+    background-color: blanchedalmond;
+    background: linear-gradient(to bottom,  rgb(255, 225, 164) 24%,rgb(255, 210, 86) 50%,rgb(240, 171, 67) 72%,rgb(205, 167, 62));
+}
+head{
+    padding-top: 100px;
+    margin:0;
+}
+
+#body{
+    padding-top: 100px;
+    margin:0;
+}
+
+#titol{
+    color: rgb(250, 203, 75);
+    justify-content: center;
+    font-style: italic;
+}
+
+#subtitol{
+    color: rgb(112, 62, 0);
+    text-align: center;
+    font-size: 170%;
+}
+
+#dalt{
+    background-color: blanchedalmond;
+    background-image: url(images/capcafe.jpg);
+    display: flex;
+}
+
+
+nav{
+    display: flex;
+    align-items: center;
+    font-size: larger;
+    list-style: none;
+    justify-content: space-evenly;
+    margin-bottom: 1%;
+}
+
+li{
+    padding: 0.2%;
+    transition: background-color 0.5s ease;
+}
+
+li a{
+    transition: background-color 0.5s ease;
+    color: rgb(0, 0, 0);
+}
+
+li:hover{
+    background-color: rgb(199, 125, 35);
+    padding: 0.2%;
+}
+
+article:hover{
+    transform: scale(1.1);
+}
+
+a{
+    text-decoration: none;
+}
+
+#varietats{
+    border-style:double;
+    border-color: white;
+    background-color: rgb(233, 180, 114);
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 1%;
+    padding: 0.3%;
+}
+
+#productes{
+    display: flex;
+    justify-content: space-evenly;    
+}
+
+#contingut{
+    display: flex;
+}
+
+#contingut img{
+    border-style:double;
+    border-color: white;
+}
+
+#text{
+    margin-left: 3%;   
+    max-width: 700px;
+}
+
+
+footer{
+    background-image: url(images/capcafe.jpg); 
+    color: aliceblue;  
+    padding: 0.5%;
+}
+
+
+.contacte{	
+	width: 460px; 
+  height: auto;
+  margin: 80px auto;
+	border-radius: 10px;  
+	padding-top: 30px;
+	padding-bottom: 20px;  
+  background-color:antiquewhite ; 
+  padding-left: 30px; 
+}
+
+
+input{
+	background-color: #fbfbfb; 
+	width: 408px; 
+	height: 40px; 
+	border-radius: 5px;  
+	border-style: solid; 
+	border-width: 1px; 
+	border-color: rgb(233, 180, 114); 
+	margin-top: 10px;  
+	padding-left: 10px;
+  margin-bottom: 20px; 
+}
+
+
+textarea{
+  background-color: #fbfbfb; 
+	width: 405px; 
+	height: 150px; 
+	border-radius: 5px;  
+	border-style: solid; 
+	border-width: 1px; 
+	border-color: rgb(233, 180, 114); 
+	margin-top: 10px;  
+	padding-left: 10px;
+  margin-bottom: 20px; 
+  padding-top: 15px; 
+}
+
+
+label{
+  display: block; 
+	float: center; 	
+}
+
+
+button{
+	height: 45px; 
+	padding-left: 5px;
+	padding-right: 5px; 	
+	margin-bottom: 20px; 
+	margin-top: 10px; 	
+	text-transform: uppercase;
+	background-color: rgb(233, 180, 114); 
+	border-color: rgb(138, 95, 43); 
+	border-style: solid; 
+	border-radius: 10px;	
+	width: 420px;   
+  cursor: pointer;
+}
+
+
+button p{
+	color: #fff; 
+}
+
+.aviso{
+	font-size: 13px;  
+	color: #0e0e0e;  
+}
+
+
+#formu{
+	font-size: 39px;  
+	text-align: letf; 
+	padding-bottom: 20px; 
+	color: rgb(147, 99, 41);
+}
+
+
+#lari{
+	font-size: 16px; 
+	padding-bottom: 30px;
+	color: #0e0e0e;   
+}
+
+.formulari input:focus{
+	outline:0;
+	border: 1px solid rgb(100, 59, 8);
+}
+
+
+.formulari textarea:focus{
+	outline:0;
+	border: 1px solid rgb(100, 59, 8);
+}
