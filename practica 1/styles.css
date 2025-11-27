@@ -78,6 +78,10 @@ a{
     justify-content: space-evenly;    
 }
 
+#Informació{
+    width: 150px;
+}
+
 #contingut{
     display: flex;
 }
