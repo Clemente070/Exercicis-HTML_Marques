@@ -1,0 +1,143 @@
+#titol{
+    justify-content: center;
+    display: flex;
+}
+
+#dalt {
+    background-color: #f2d7ee; 
+    padding: 25px;
+}
+
+#dalt a {
+    text-decoration: none;
+}
+
+#titol {
+    font-size: 330%;
+    color: #4a235a; 
+    letter-spacing: 6px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+body{
+    background-color: #f2d7ee; 
+}
+
+#portada{
+    display: flex;
+}
+
+#audio{
+    text-align: center;
+}
+
+#audio h2{
+    font-size: 150%;
+    color: #4a235a; 
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#fotos{
+    display: flex;
+}
+
+#peu figcaption{
+    text-align: center;
+    font-size: 150%;
+    color: #4a235a; 
+    letter-spacing: 6px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+figure img{
+    width: 680px;  
+    height: 680px;  
+}
+
+#poner{
+    justify-content: center;
+    display: flex;
+}
+
+#taula_album{
+    color: #4a235a; 
+    width: 70%;
+    margin: 60px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+#taula_album  th{
+    background: #6a1b9a;
+    color: white;
+    padding: 15px;
+}
+
+#taula_album td{
+    background: #f3e5f5;
+    text-align: center;
+    padding: 12px;
+}
+
+#taula_instruments{
+    color: #4a235a; 
+    width: 35%;
+    margin: 40px auto;
+    padding: 20px;
+    list-style: none;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+#taula_instruments li{
+    padding: 12px;
+    margin: 8px 0;
+    background: #f7e6ff;
+    border-radius: 10px;
+    color: #4a148c;
+}
+
+#taula_grup{
+    color: #4a235a; 
+    width: 35%;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+#taula_grup li{
+    padding: 12px;
+    margin: 8px 0;
+    background: #f7e6ff;
+    border-radius: 10px;
+    color: #4a148c;
+}
+
+#components{
+    display: flex;
+}
+
+#videos article {
+    display: flex;
+    justify-content: center;
+    gap: 20px;           
+    margin-bottom: 20px;
+    flex-wrap: wrap;     
+}
+
+#mapa{
+    display: flex;
+    justify-content: center;
+}
+
+footer{
+    text-align: center;
+    font-size: 120%;
+    color: #4a235a; 
+    letter-spacing: 6px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
