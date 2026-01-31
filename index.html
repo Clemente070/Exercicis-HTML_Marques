@@ -1,4 +1,221 @@
-<h1>Exercicis HTML</h1>
-<a href="practica 1/index.html">Exercici 1: Botiga</a>
-<a href="practica 2/index.html">Exercici 2: Music Box</a>
-<a href="practica 3/index.html">Exercici 3: Grans Pintors</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--metadades-->    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta autor="Adrià Clemente" />
+    <meta name="description" content="Portafolis Homer Simpson" />
+    <meta name="keywords" content="HTML, CSS, Bootstrap, JavaScript, DAM, web, software" />
+    <title>Portafolis Adrià Clemente</title>
+
+    <!--Font  Por la 30--> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+
+    <!--Bootstrap CSS i icones-->
+
+    <link rel="icon" href="images/icona.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <nav class="navbar navbar-expand-md navbar-light">
+  <div class="container-fluid">
+    <ul class="navbar-nav d-flex justify-content-center align-items-center">
+        <a class="navbar-brand" href="#">
+            <img src="images/icona.png" alt="icona" width="50"/>
+        </a>
+        <li class="nav-item">
+            <!--section sobre mi-->
+            <a class="nav-link active" aria-current="page" href="#sobremi">About me</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#webdesign">Web design</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#projectes-video">Projects</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#contacte">Contact</a>
+        </li>
+    </ul>
+  </div>
+</nav>
+</head>
+    <!-- carrega el javascript de Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<body>
+    <section class="hero align-items-stretch">
+        <div>
+            <img class="hero-imatge" src="images/perfil.jpg" alt="foto personal" width="300" />
+            <h1>Adrià Clemente Rodriguez</h1>
+            <h2>Student of DAM</h2>
+        </div>
+        <div class="hero-inferior">
+            <img class="img-fluid" src="images/InfoFoto.png" alt="imatge ordinador i llenguatges"/>
+        </div>
+    </section>
+
+     <!--section sobre mi-->
+    <section id="sobremi" class="about-me dark-section">
+        <div>
+            <h2 class="section-title">Learn more about me</h2>
+            <p class="section-text">I am a student of the higher cycle of DAM with a lot of desire to grow and learn in the professional field.</p>
+        </div>
+        <div class="text-center">
+                <a href="arxius/Adrià Clemente Rodriguez.pdf"  download class="btn btn-primary btn-lg btn-responive"> <!--Poner curriculum-->
+                  📄 Download CV
+              </a>
+        </div>
+    </section>
+
+    <!--seccio experiència-->
+    <section class="experiencia white-section">
+        <div class="container text-center">
+               <div class="row">
+            <div class="columna col-12 col-md-4">
+              <i class="bi bi-filetype-css"></i>
+              <p class="experiencia-title">Web development</p>
+              <p>With studies of HTML and CSS, with experience with Wordpress and its plugins.</p>
+              <div class="bagdes-contenedor">
+                <span class="badge rounded-pill bg-primary">HTML</span>
+                <span class="badge rounded-pill bg-primary">WordPress</span>
+                <span class="badge rounded-pill bg-primary">CSS</span>
+              </div>
+            </div>
+
+
+            <div class="columna col-12 col-md-4">
+              <i class="bi bi-filetype-java"></i>
+              <p class="experiencia-title">Java</p>
+              <p>Currently learning development of programs with Java in the NetBeans environment.</p>
+              <div class="bagdes-contenedor">
+                <span class="badge rounded-pill bg-primary">Java</span>
+                <span class="badge rounded-pill bg-primary">NetBeans</span>
+                <span class="badge rounded-pill bg-primary">...</span>
+              </div>
+          </div>
+
+
+            <div class="columna col-12 col-md-4">
+              <i class="bi bi-motherboard"></i>
+              <p class="experiencia-title">O.S.</p>
+              <p>SMIX grade, configuration of both Windows and Linux operating systems and their software and hardaware maintenance, creation of Windows/Linux servers (Web, Manager, User Control).</p>
+              <div class="bagdes-contenedor">
+                <span class="badge rounded-pill bg-primary">Linux</span>
+                <span class="badge rounded-pill bg-primary">Windows</span>
+                <span class="badge rounded-pill bg-primary">Servers</span>
+              </div>
+           </div>
+
+        </div>
+    </section>
+
+     <!--section web dessign-->
+    <section id="webdesign" class="projectes white-section d-flex flex-column">
+      <h2 class="section-title black-text">Web Design</h2>
+      <h3 class="section-description">Some web projects developed in the DAM cycle </h3>
+      <!--galeria de projectes-->
+      <div class="container text-center projectes-container">
+        <div class="row">
+ 	    <!--projecte 1-->
+          <div class="projecte col-12 col-md-6 col-lg-4">
+               <img src="images/projecte1.png" alt="projecte 1"/>
+              <div class="overlay">
+                <p>Botiga de café</p>
+                <div class="icones-contenidor">
+                  <a href="practica 1/index.html" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-laptop"></i>
+                  </a>
+                </div>
+             </div>
+          </div>
+          <div class="projecte col-12 col-md-6 col-lg-4">
+               <img src="images/projecte2.png" alt="projecte 1"/>
+              <div class="overlay">
+                <p>Music Box</p>
+                <div class="icones-contenidor">
+                  <a href="practica 2/index.html" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-laptop"></i>
+                  </a>
+                </div>
+             </div>
+          </div>
+          <div class="projecte col-12 col-md-6 col-lg-4">
+               <img src="images/projecte3.png" alt="projecte 1"/>
+              <div class="overlay">
+                <p>Grans Pintors</p>
+                <div class="icones-contenidor">
+                  <a href="practica 3/index.html" target="_blank" rel="noopener noreferrer">
+                    <i class="bi bi-laptop"></i>
+                  </a>
+                </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!--section projectes-->
+    <section id="projectes-video" class="projectes white-section d-flex flex-column">
+      <h2 class="section-title black-text">Aplication Development</h2>
+      <h3 class="section-description">Some aplications developed in the DAM cycle </h3>
+      <!--galeria de projectes-->
+      <div class="container text-center projectes-container">
+        <div class="row">
+
+
+          <!--video del projecte 1-->
+          <div class="projecte col-12 col-md-6 col-lg-4">
+              <div class="video">
+                <iframe src="https://www.youtube.com/embed/9_9e7hlwisI?si=tUVx3SQMB7YNS5v8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <h2>Projecte 1</h2>
+              <p>Proximament!!</p>
+          </div>
+
+          <div class="projecte col-12 col-md-6 col-lg-4">
+              <div class="video">
+                <iframe src="https://www.youtube.com/embed/9_9e7hlwisI?si=tUVx3SQMB7YNS5v8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <h2>Projecte 2</h2>
+              <p>Proximament!!</p>
+          </div>
+
+          <div class="projecte col-12 col-md-6 col-lg-4">
+              <div class="video">
+                <iframe src="https://www.youtube.com/embed/9_9e7hlwisI?si=tUVx3SQMB7YNS5v8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <h2>Projecte 3</h2>
+              <p>Proximament!!</p>
+          </div>
+     
+        </div>
+      </div>
+    </section>
+
+     <!--section contacte-->
+    <footer id="contacte" class="dark-section d-flex flex-column align-items-center justify-content-center">
+      <img class="footer-logo" src="images/icona.png" alt="logo"/>
+      <p class="footer-text text-center">Contact me</p>
+      <div class= "social-icons d-flex flex-wrap align-items-center justify-content-center">
+        <a href="adria090707@gmail.com" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/homer-simpson" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-linkedin"></i>
+        </a>
+        <a href="https://github.com/Clemente070" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-github"></i>
+        </a>
+        <a href="https://www.twitter.com/homer-simpson" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-twitter"></i>
+        </a>
+      </div>
+      <div class="drets">Created by Adrià Clemente (2026) &#169;</div>
+    </footer>
+
+</body>
+</html>
