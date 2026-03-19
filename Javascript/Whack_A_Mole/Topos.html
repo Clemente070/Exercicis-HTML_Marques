@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  #caselles{
+    justify-content: center;
+    text-align: center;
+  }
+
+  body{
+    background-image: url('herba.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #puntuacio {
+    font-size: 250%;
+    color: white; 
+    letter-spacing: 6px;
+    background-color: black;
+  }
+
+  #titol{
+    display: flex;
+    font-size: 250%;
+    color: brown; 
+    letter-spacing: 6px;
+  }
+
+  button{
+    background: none;    
+    border: none;       
+    padding: 0;          
+    outline: none;       
+    cursor: pointer; 
+  }
+
+  button img{
+    width: 150px;
+    height: 150px;
+  }
+
+  #trofeus{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  #trofeus img{
+    width: 100px;
+  }
+
+  #exits{
+    display: flex;
+    font-size: 250%;
+    color: brown; 
+    letter-spacing: 6px;
+  }
+
+  #topos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10%;
+  gap: 20px;
+  } 
+
+</style>
+</head>
+<body>
+  
+  <div id="topos">
+
+  <div id="trofeus">
+    <p id="exits" >Èxits</p>
+    <img id="t1" src="">
+    <img id="t2" src="">
+    <img id="t3" src="">
+  </div>
+
+  <section id="caselles">
+    <p id="titol">Whack a Mole!!!!!</p>
+    
+
+    <div>
+      <button onclick="topos(1)">
+        <img id="imatge1" src="papano.png" alt="Botón">
+      </button>
+
+      <button onclick="topos(2)">
+        <img id="imatge2" src="papano.png" alt="Botón">
+      </button>
+
+      <button onclick="topos(3)">
+        <img id="imatge3" src="papano.png" alt="Botón">
+      </button>
+    </div>
+
+    <div>
+      <button onclick="topos(4)">
+        <img id="imatge4" src="papano.png" alt="Botón">
+      </button>
+
+      <button onclick="topos(5)">
+        <img id="imatge5" src="papano.png" alt="Botón">
+      </button>
+
+      <button onclick="topos(6)">
+        <img id="imatge6" src="papano.png" alt="Botón">
+      </button>
+    </div>
+
+    <div>
+      <button onclick="topos(7)">
+        <img id="imatge7" src="papano.png" alt="Botón">
+      </button>
+
+      <button onclick="topos(8)">
+        <img id="imatge8" src="papano.png" alt="Botón">
+      </button>
+
+      <button onclick="topos(9)">
+        <img id="imatge9" src="papano.png" alt="Botón">
+      </button>
+    </div>
+
+    <p id="puntuacio">Punts: 0</p>
+  </section>
+</div>
+
+<script>
+  let punts = 0;
+  const boing = new Audio('boing.mp3');
+  const trofeu = new Audio('trofeo.mp3');
+
+  function mostra1() {
+    let fora = 0;
+
+    for(let num1 = 1; num1 < 10; num1++){
+      if (document.getElementById(`imatge${num1}`).src.includes("papapum.png")){
+        fora++;
+      }
+    }
+
+    if(fora == 3){
+
+    }else{
+
+    var num = Math.floor(Math.random() * 2) + 1;
+
+    if(num == 1){
+      var numeroImatge = Math.floor(Math.random() * 9) + 1;
+      document.getElementById(`imatge${numeroImatge}`).src = "papano.png";
+    }
+
+    if(num == 2){
+      var numeroImatge = Math.floor(Math.random() * 9) + 1;
+      document.getElementById(`imatge${numeroImatge}`).src = "papapum.png";
+    }
+
+    setTimeout(function(){
+    document.getElementById(`imatge${numeroImatge}`).src = "papano.png";
+  }, 3000);
+  }	
+  }
+  setInterval(mostra1, 500)
+
+  
+
+  function topos(num){
+
+  if (document.getElementById(`imatge${num}`).src.includes("papapum.png")){
+    boing.play();
+    punts = punts + 10;
+    document.getElementById("puntuacio").innerHTML = "Punts: " + punts;
+
+    if(punts == 100){
+    document.getElementById(`t1`).src = "trofeitos.png";
+    trofeu.play();
+    }
+    if(punts ==200){
+    document.getElementById(`t2`).src = "trofeitos2.png";
+    trofeu.play();
+    }
+    if(punts == 300){
+    document.getElementById(`t3`).src = "trofeitos3.png";
+    trofeu.play();
+    }
+
+    document.getElementById(`imatge${num}`).src = "pum.png";
+  }else if(document.getElementById(`imatge${num}`).src.includes("papano.png")){
+    document.getElementById(`imatge${num}`).src = "sinpapa.png";
+  }
+
+  
+  setTimeout(function(){
+    document.getElementById(`imatge${num}`).src = "papano.png";
+  }, 500);
+
+  }
+
+</script>
+ 
+</body>
+</html>
