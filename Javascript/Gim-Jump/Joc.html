@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joc ml5.js - Fullscreen Corregit</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ml5@0.12.2/dist/ml5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let video;
+        let poseNet;
+        let poses = [];
+        let timerRunning = false;
+        let bolas = [];
+        let punts = 0;
+        let gameOver = false;
+        let cercleMans = 80; 
+        let imgBuena, imgMala, musica;
+
+        function preload() {
+            imgBuena = loadImage('buena.png'); 
+            imgMala = loadImage('mala.png');
+            musica = loadSound('musica.mp3');
+        }
+
+        function setup() {
+            createCanvas(windowWidth, windowHeight);
+           
+            video = createCapture(VIDEO);
+            video.size(640, 480);
+            video.hide();
+
+            poseNet = ml5.poseNet(video, () => console.log("Model carregat!"));
+            poseNet.on('pose', (results) => {
+                poses = results;
+            });
+        }
+
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+        }
+
+        function keyPressed() {
+            if (key === ' ') {
+                if (gameOver || !timerRunning) {
+                    startTimer();
+                }
+            }
+        }
+
+        function draw() {
+            background(0);
+
+            push();
+            translate(width, 0);
+            scale(-1, 1);
+            image(video, 0, 0, width, height);
+            pop();
+
+            fill(255);
+            noStroke();
+            textSize(32);
+            textAlign(LEFT, TOP);
+            text("Punts: " + punts, 20, 20);
+
+            if (timerRunning) {
+                if (!musica.isPlaying()) {
+                    resetGame();
+                }
+
+                let tiempoRestante = ceil(musica.duration() - musica.currentTime());
+                fill(255, 255, 0);
+                textSize(64);
+                textAlign(CENTER, CENTER);
+                text(tiempoRestante, width / 2, 60);
+
+                if (frameCount % 20 === 0) {
+                    spawnBolas();
+                }
+
+                if (poses.length > 0) {
+                    let pose = poses[0].pose;
+                    
+
+                    let lw = pose.keypoints.find(kp => kp.part === 'leftWrist');
+                    let rw = pose.keypoints.find(kp => kp.part === 'rightWrist');
+
+                    let getPos = (joint) => {
+                        return {
+                            x: map(joint.position.x, 0, 640, width, 0),
+                            y: map(joint.position.y, 0, 480, 0, height),
+                            score: joint.score
+                        };
+                    };
+
+                    let leftW = lw ? getPos(lw) : null;
+                    let rightW = rw ? getPos(rw) : null;
+
+                    if (leftW && leftW.score > 0.2) {
+                        fill(255, 0, 0, 100);
+                        ellipse(leftW.x, leftW.y, 200);
+                    }
+                    if (rightW && rightW.score > 0.2) {
+                        fill(0, 0, 255, 100);
+                        ellipse(rightW.x, rightW.y, 200);
+                    }
+
+                    for (let i = bolas.length - 1; i >= 0; i--) {
+                        let b = bolas[i];
+                        b.y += b.speed;
+
+                        imageMode(CENTER);
+                        if (b.tipo === "buena") {
+                            image(imgBuena, b.x, b.y, b.r * 2, b.r * 2);
+                        } else {
+                            image(imgMala, b.x, b.y, b.r * 2, b.r * 2);
+                        }
+                        imageMode(CORNER);
+
+                        checkCollision(b, leftW, i);
+                        checkCollision(b, rightW, i);
+
+                        if (b.y > height + 50) {
+                            bolas.splice(i, 1);
+                        }
+                    }
+                }
+            }
+
+            if (gameOver) {
+                fill(0, 0, 0, 200);
+                rect(0, 0, width, height);
+                fill(255);
+                textAlign(CENTER, CENTER);
+                textSize(60);
+                text("PUNTS: " + punts, width / 2, height / 2);
+                textSize(32);
+                text("PREM ESPAI PER TORNAR A JUGAR", width / 2, height / 2 + 100);
+            }
+        }
+
+        function checkCollision(ball, joint, index) {
+            if (joint && joint.score > 0.2) {
+                if (dist(ball.x, ball.y, joint.x, joint.y) < ball.r + (cercleMans / 2)) {
+                    scoreBall(index, ball.tipo);
+                }
+            }
+        }
+
+        function scoreBall(index, tipo) {
+            bolas.splice(index, 1);
+            if (tipo === "mala") punts--;
+            else punts++;
+        }
+
+        function startTimer() {
+            punts = 0;
+            bolas = [];
+            gameOver = false;
+            timerRunning = true;
+            if (musica.isLoaded()) {
+                musica.stop();
+                musica.play();
+            }
+        }
+
+        function resetGame() {
+            timerRunning = false;
+            gameOver = true;
+            musica.stop();
+        }
+
+        function spawnBolas() {
+            let esMala = random() < 0.3;
+            bolas.push({
+                x: random(50, width - 50),
+                y: -50,
+                r: random(30, 50), 
+                speed: random(5, 10),
+                tipo: esMala ? "mala" : "buena"
+            });
+        }
+    </script>
+</body>
+</html>
